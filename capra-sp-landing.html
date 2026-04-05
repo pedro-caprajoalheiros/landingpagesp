@@ -1295,10 +1295,13 @@
     }
     .footer-links a {
       font-size: var(--text-sm);
-      color: rgba(250,247,242,0.4);
+      font-weight: 300;
+      color: rgba(250,247,242,0.55);
       transition: color var(--dur-fast);
+      letter-spacing: 0.02em;
     }
-    .footer-links a:hover { color: rgba(250,247,242,0.8); }
+    .footer-links a:first-child { font-weight: 500; color: rgba(250,247,242,0.8); }
+    .footer-links a:hover { color: rgba(250,247,242,0.95); }
     .footer-links a:focus-visible { outline: 1px solid var(--accent); }
     .footer-bottom {
       display: flex;
@@ -1408,7 +1411,7 @@
       .hero-ctas { flex-direction: column; }
       .hero-ctas .btn { width: 100%; justify-content: center; }
       .bento { grid-template-columns: 1fr; }
-      .bento-card:nth-child(n) { grid-column: span 1; }
+      .bento-card:nth-child(n) { grid-column: span 1; min-height: 68vw; }
       .trust-bar-inner { flex-direction: column; }
       .trust-item { border-right: none; border-bottom: 1px solid rgba(44,44,38,0.1); width: 100%; justify-content: center; }
       .trust-item:last-child { border-bottom: none; }
@@ -1466,10 +1469,17 @@
     }
     details[open] .faq-icon { transform: rotate(45deg); }
     .faq-answer {
-      overflow: hidden;
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 280ms ease-out, padding-bottom 280ms ease-out;
+      padding-bottom: 0;
+    }
+    details[open] .faq-answer {
+      grid-template-rows: 1fr;
       padding-bottom: var(--s-4);
     }
     .faq-answer p {
+      overflow: hidden;
       font-size: var(--text-base);
       line-height: 1.85;
       color: rgba(44,44,38,0.65);
